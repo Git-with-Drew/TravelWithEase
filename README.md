@@ -1,6 +1,7 @@
 # TravelEase Contact Form - Serverless AWS Solution
 
-A production-ready, serverless contact form system built with AWS services and Terraform. This project demonstrates secure cloud architecture, Infrastructure as Code best practices, and full-stack development capabilities.
+A production-ready, serverless contact form system built with AWS services and Terraform. A modern responsive frontend with a robust backend that auto processes submissions, saves and stores captured data, and sends email notifications. 
+This project demonstrates secure cloud architecture, Infrastructure as Code best practices, and full-stack development capabilities.
 
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
@@ -18,6 +19,7 @@ This project solves a common business problem: professional customer inquiry man
 - ✅ Real-time form validation
 - ✅ Mobile-responsive design
 - ✅ Complete Infrastructure as Code (Terraform)
+- ✅ Secure by design: No hardcoded values & proper IAM config (Least Privilege)
 - ✅ Cost-effective serverless architecture (<$2/month)
 
 ## 🏗️ Architecture
@@ -99,18 +101,18 @@ travelease-contact/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/travelease-contact.git
-   cd travelease-contact
+   git clone <your-repository-url>
+   cd TravelWithEase
    ```
 
 2. **Configure Terraform variables**
    
    Create a `terraform.tfvars` file:
    ```hcl
-   aws_region              = "us-east-1"
+   aws_region              = "your-specific-region"
    s3_bucket_name          = "your-unique-bucket-name"
-   ses_sender_email        = "noreply@yourdomain.com"
-   ses_recipient_email     = "business@yourdomain.com"
+   ses_sender_email        = "noreply@yourdomain.com"       # Must be verified in SES
+   ses_recipient_email     = "contact@yourdomain.com"       # Must be verified in SES
    environment             = "dev"
    api_gateway_stage_name  = "dev"
    ```
@@ -120,7 +122,7 @@ travelease-contact/
    Before deployment, verify your sender and recipient emails in AWS SES:
    ```bash
    aws ses verify-email-identity --email-address noreply@yourdomain.com
-   aws ses verify-email-identity --email-address business@yourdomain.com
+   aws ses verify-email-identity --email-address contact@yourdomain.com
    ```
    
    Check your inbox and click the verification links.
@@ -145,8 +147,10 @@ travelease-contact/
 7. **Note the outputs**
    
    After deployment, Terraform will output:
+   - S3 website bucket name
    - S3 website endpoint
    - API Gateway invoke URL
+   
    
    Your contact form will be live at the S3 website endpoint!
 
@@ -210,44 +214,6 @@ The system sends two types of emails:
 - Complete customer information in table format
 - Clickable email and phone links
 - Submission timestamp
-
-## 🔧 Configuration
-
-### Environment Variables (Lambda)
-
-The Lambda function uses the following environment variables (automatically set by Terraform):
-
-- `TABLE_NAME`: DynamoDB table name
-- `FROM_EMAIL`: SES verified sender email
-- `BUSINESS_EMAIL`: Recipient email for notifications
-
-### Terraform Variables
-
-All configurable values are in `variables.tf`:
-
-```hcl
-variable "aws_region" {
-  description = "AWS region for resource deployment"
-  default     = "us-east-1"
-}
-
-variable "s3_bucket_name" {
-  description = "Globally unique S3 bucket name"
-}
-
-variable "ses_sender_email" {
-  description = "Verified SES sender email address"
-}
-
-variable "ses_recipient_email" {
-  description = "Business email for notifications"
-}
-
-variable "environment" {
-  description = "Deployment environment (dev/staging/prod)"
-  default     = "dev"
-}
-```
 
 ## 🐛 Troubleshooting
 
@@ -343,9 +309,6 @@ This project demonstrates:
 - ✅ **API Design**: RESTful endpoints with proper CORS
 - ✅ **Email Deliverability**: SES configuration and templating
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🤝 Contributing
 
@@ -353,9 +316,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-**Your Name** - [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
-Project Link: [https://github.com/yourusername/travelease-contact](https://github.com/yourusername/travelease-contact)
+**Andrew Namisi** - [Your LinkedIn](https://www.linkedin.com/in/andrewnamisi/)
 
 ---
 

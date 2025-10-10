@@ -80,3 +80,4 @@ output "s3_bucket_name" {
 output "s3_bucket_website_endpoint" {
   value       = aws_s3_bucket_website_configuration.website_config.website_endpoint
   description = "S3 Bucket Website Endpoint"
+}
