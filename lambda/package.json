@@ -1,0 +1,21 @@
+{
+  "name": "travel-with-ease-contact-form",
+  "version": "1.0.0",
+  "description": "Lambda function for Travel with Ease contact form submissions",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --production && npm run package",
+    "package": "zip -r contact_form_lambda.zip . -x \"*.md\" \"build.sh\" \"package-lock.json\" \"node_modules/.cache/*\"",
+    "clean": "rm -f contact_form_lambda.zip",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1000.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["aws", "lambda", "contact-form", "travel"],
+  "author": "Travel with Ease",
+  "license": "MIT"
+}

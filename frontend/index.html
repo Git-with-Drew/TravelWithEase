@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWithEase - Plan Your Perfect Journey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>TravelWithEase</h1>
+            <p>Let's plan your perfect journey together</p>
+        </div>
+        
+        <div class="form-content">
+            <div class="success-message" id="successMessage">
+                <h3>Thank you for your inquiry!</h3>
+                <p>We'll get back to you within 24 hours with a personalized travel plan.</p>
+            </div>
+            
+            <form id="travelForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder=" " required>
+                        <label for="firstName" class="form-label">First Name</label>
+                        <div class="error-message" id="firstNameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder=" " required>
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <div class="error-message" id="lastNameError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder=" ">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="destination" name="destination" class="form-select" required>
+                            <option value="">Select Destination</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="americas">Americas</option>
+                            <option value="africa">Africa</option>
+                            <option value="oceania">Oceania</option>
+                            <option value="multiple">Multiple Destinations</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="destinationError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="travelType" name="travelType" class="form-select" required>
+                            <option value="">Travel Type</option>
+                            <option value="leisure">Leisure</option>
+                            <option value="business">Business</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="romantic">Romantic</option>
+                            <option value="family">Family</option>
+                            <option value="solo">Solo Travel</option>
+                            <option value="group">Group Travel</option>
+                        </select>
+                        <div class="error-message" id="travelTypeError"></div>
+                    </div>
+                    
+                    <div class="travel-dates-section">
+                        <h3 class="travel-dates-title">Approximate Travel Dates</h3>
+                        <div class="date-inputs">
+                            <div class="date-input-group">
+                                <input type="date" id="departureDate" name="departureDate" class="form-input">
+                                <label class="date-label">Departure Date (Optional)</label>
+                            </div>
+                            <div class="date-input-group">
+                                <input type="date" id="returnDate" name="returnDate" class="form-input">
+                                <label class="date-label">Return Date (Optional)</label>
+                            </div>
+                        </div>
+                        <div class="flexible-dates">
+                            <input type="text" id="flexibleDates" name="flexibleDates" class="form-input" placeholder="Or describe your preferred timeframe (e.g., 'Mid-June 2025', 'Summer vacation')">
+                        </div>
+                        <div class="error-message" id="travelDatesError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="number" id="travelers" name="travelers" class="form-input" placeholder=" " min="1" max="20" required>
+                        <label for="travelers" class="form-label">Number of Travelers</label>
+                        <div class="error-message" id="travelersError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="budget" name="budget" class="form-select" required>
+                            <option value="">Budget Range</option>
+                            <option value="budget">Budget (Under $1,000)</option>
+                            <option value="moderate">Moderate ($1,000 - $3,000)</option>
+                            <option value="premium">Premium ($3,000 - $7,000)</option>
+                            <option value="luxury">Luxury ($7,000+)</option>
+                        </select>
+                        <div class="error-message" id="budgetError"></div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <textarea id="specialRequests" name="specialRequests" class="form-textarea" placeholder="Tell us about any special requests, dietary restrictions, accessibility needs, or specific interests..."></textarea>
+                        <div class="error-message" id="specialRequestsError"></div>
+                    </div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter" class="checkbox-input">
+                    <label for="newsletter" class="checkbox-label">
+                        Subscribe to our newsletter for travel tips and exclusive deals
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <div class="loading-spinner" id="loadingSpinner"></div>
+                    <span id="submitText">Plan My Journey</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
