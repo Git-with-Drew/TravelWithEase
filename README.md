@@ -1,4 +1,4 @@
-# TravelEase Contact Form - Serverless AWS Solution
+# Travel Agency Contact Form - Serverless AWS Solution
 
 A production-ready, serverless contact form system built with AWS services and Terraform. A modern responsive frontend with a robust backend that auto processes submissions, saves and stores captured data, and sends email notifications. 
 This project demonstrates secure cloud architecture, Infrastructure as Code best practices, and full-stack development capabilities.
@@ -7,6 +7,12 @@ This project demonstrates secure cloud architecture, Infrastructure as Code best
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+
+## 📸 Live Application
+
+![TravelWithEase Contact Form](Images/GUI.png)
+*Professional, modern-responsive contact form with real-time validation*
+
 
 ## 🎯 Project Overview
 
@@ -225,9 +231,10 @@ The system sends two types of emails:
 - Ensure SES is out of sandbox mode for production use
 
 **2. CORS errors in browser**
-- Verify API Gateway CORS configuration
+- Verify API Gateway CORS configuration in `backend.tf`
 - Check that frontend is making requests to correct API endpoint
 - Ensure OPTIONS method is properly configured
+- Clear browser cache and try again
 
 **3. Form submissions not saving**
 - Check Lambda execution role permissions
@@ -238,6 +245,13 @@ The system sends two types of emails:
 - Ensure S3 bucket name is globally unique
 - Verify AWS credentials are properly configured
 - Check that required providers are installed
+- Review Terraform error output for specific resource failures
+
+**5. Lambda function not updating**
+- Check that `package_lambda.sh` has execute permissions
+- Verify Node.js dependencies are installed in lambda directory
+- Review the `null_resource` trigger in `backend.tf`
+- Manually run `terraform apply -replace` to force replacement
 
 ### Viewing Logs
 
@@ -300,14 +314,15 @@ aws cloudwatch put-metric-alarm \
 
 This project demonstrates:
 
-- ✅ **Infrastructure as Code**: Complete Terraform implementation
+- ✅ **Infrastructure as Code**: Complete Terraform implementation with proper state management
 - ✅ **Serverless Architecture**: Event-driven, auto-scaling design
 - ✅ **Security Best Practices**: IAM, input validation, XSS prevention
 - ✅ **Full-Stack Development**: Frontend + backend integration
 - ✅ **Production Readiness**: Error handling, logging, monitoring
 - ✅ **Cost Optimization**: Pay-per-use serverless economics
-- ✅ **API Design**: RESTful endpoints with proper CORS
+- ✅ **API Design**: RESTful endpoints with proper CORS configuration
 - ✅ **Email Deliverability**: SES configuration and templating
+- ✅ **DevOps Practices**: Automated deployments, infrastructure versioning, reproducible builds
 
 
 ## 🤝 Contributing
@@ -316,8 +331,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-**Andrew Namisi** - [Your LinkedIn](https://www.linkedin.com/in/andrewnamisi/)
+**Andrew Namisi** - [LinkedIn](https://www.linkedin.com/in/andrewnamisi/)
+
 
 ---
 
 **Built with ☁️ by a security professional expanding into cloud engineering**
+
+*If you found this project helpful, please consider giving it a ⭐ on GitHub!*
