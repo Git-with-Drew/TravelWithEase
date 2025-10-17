@@ -329,6 +329,10 @@ This project demonstrates:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## 📖 Learn More
+
+For a detailed walkthrough of this project and insights into building serverless applications, check out my Medium article: [How Building a Simple Contact Form Taught Me Serverless Architecture](https://medium.com/@andrew.namisi1/how-building-a-simple-contact-form-taught-me-serverless-architecture-c506ab4d36b9)
+
 ## 📧 Contact
 
 **Andrew Namisi** - [LinkedIn](https://www.linkedin.com/in/andrewnamisi/)
